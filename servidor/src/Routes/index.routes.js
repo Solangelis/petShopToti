@@ -1,4 +1,3 @@
-const { application } = require('express')
 const Router = require('express')
 const router = Router()
 router.post('/api/produtos', (req, resp) => {
@@ -13,6 +12,10 @@ router.get('/api/produtos/:id', (req, res) => {
     res.send('so um produto')
 })
 
+
+router.delete('/api/produtos/:id', (req, res) => {
+    res.send('deletar so um produto')
+})
 
 
 module.exports = router

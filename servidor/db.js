@@ -1,6 +1,7 @@
 const db = require('mongoose')
+require('dotenv').config()
 
-db.connect('mongodb+srv://tabitha:6d8Y9SUpGaQAysLQ@cluster0.pdp0mkb.mongodb.net/?retryWrites=true&w=majority')
+db.connect(process.env.MONGO_URI)
 .then(()=>{
    console.log('Conectado a Base de dados ');
 })

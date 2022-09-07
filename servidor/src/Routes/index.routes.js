@@ -28,9 +28,16 @@ router.get('/api/produtos/:id', (req, res) => {
 })
 
 //Deletar Produto
-router.delete('/api/produtos/:id', (req, res) => {
-    res.send('deletar so um produto')
+router.delete('/api/produtos/:id', (req, resp) => {
+    const{id} = req.params
+    produto.findByIdAndDelete(id)
+        .then((dado) => resp.status(200).json(dado))
+        .catch((err) => resp.status(400).json({ message: err }).end())
 })
+
+
+
+
 
 
 module.exports = router

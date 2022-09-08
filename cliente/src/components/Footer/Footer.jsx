@@ -9,7 +9,7 @@ import './Footer.css';
 function Footer() {
     return (
 
-  
+  <div className="container"> 
         <div className="footer">
           <div className="my-footer">
             <h3>Institucional</h3>
@@ -53,7 +53,7 @@ function Footer() {
             </span>
           </div>
         </div>
-      
+        </div>
 
     )
 }

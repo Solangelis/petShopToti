@@ -4,7 +4,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
-
+import paginadoProduto from './components/paginadoProduto/paginadoProduto'
 
 
 function App() {
@@ -20,4 +20,4 @@ function App() {
   )
 }
 
-export default App
+export default paginadoProduto

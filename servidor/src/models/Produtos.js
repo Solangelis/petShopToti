@@ -21,6 +21,8 @@ const produtoSchema = new Schema({
       public_id:String,
       secure_url: String
    }
+},{
+   versionKey: false
 })    
 
 const Produto = model('Produto', produtoSchema)

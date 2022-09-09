@@ -1,5 +1,6 @@
 const Router = require('express')
 const Produto = require('../models/Produtos')
+const uploadFiles = require('express-fileupload')
 const { uploadImage, deleteImage } = require('../utils/bucket')
 const fs = require('fs-extra')
 
@@ -7,7 +8,10 @@ const fs = require('fs-extra')
 const router = Router()
 
 //Criar Produto
-router.post('/api/produtos', async (req, resp) => {
+router.post('/api/produtos', uploadFiles({
+   useTempFiles: true,
+   tempFileDir: './uploads/'
+}), async (req, resp) => {
     try {
         const { categoria, titulo, descripcao, valor } = req.body
         const produto = new Produto({

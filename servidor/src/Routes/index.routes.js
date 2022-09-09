@@ -1,6 +1,6 @@
 const Router = require('express')
 const Produto = require('../models/Produtos')
-const uploadImage  = require('../utils/bucket')
+const { uploadImage, deleteImage } = require('../utils/bucket')
 const fs = require('fs-extra')
 
 
@@ -24,8 +24,9 @@ router.post('/api/produtos', async (req, resp) => {
                 public_id: resultado.public_id,
                 secure_url: resultado.secure_url
             }
-            fs.unlink(req.files.tempFilePath)
+            await fs.unlink(req.files.image.tempFilePath)
         }
+
         await produto.save()
         resp.status(200).json(produto)
 
@@ -73,10 +74,18 @@ try {
 
 //Deletar Produto
 router.delete('/api/produtos/:id', async (req, resp) => {
-    const {id} = req.params
-
     try {
+        const {id} = req.params
         const produto = await Produto.findByIdAndDelete(id)
+
+        if(!produto){
+            return resp.status(404).json({message: 'Produto não encontrado '})
+        }
+        
+        if(produto.image?.public_id){
+            await deleteImage(produto.image.public_id)
+        }
+        
         resp.status(200).json(produto)
     } catch (error) {
         resp.status(400).json({ message: error.message }).end()

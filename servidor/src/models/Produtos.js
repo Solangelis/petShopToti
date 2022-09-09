@@ -20,7 +20,7 @@ const produtoSchema = new Schema({
    imageUrl:{
       type: String
    }
-})
+})    
 
 const Produto = model('Produto', produtoSchema)
 

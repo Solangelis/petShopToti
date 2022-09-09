@@ -5,7 +5,7 @@ import React from "react";
 function paginadoProduto() {
     return(
         <div className="App">
-                  <img src='./images/higienica.jpg' />
+                  <img src='../images/higienica.jpg' />
           <p>Areia Higiênica de Bentonita Econômica para Gatos - 4 kg
             BT03200</p><br></br>
           <p>R$ 10,41</p>

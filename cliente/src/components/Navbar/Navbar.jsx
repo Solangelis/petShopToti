@@ -1,12 +1,21 @@
 import React from "react";
+
+
 const Navbar = () => {
   return (
     <div>
-      <h1>Hola Soy El Navbar</h1>
+      <h1>Hola soy el Navbar</h1>
+      </div>
 
-    </div>
+
+    
 
   )
 
 }
+
 export default Navbar
+
+
+
+

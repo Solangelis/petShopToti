@@ -23,7 +23,7 @@ export default function ProdutoForm() {
   };
   
   return (
-    <div className='container'>
+    <div className='form_container'>
       <h2>Cadastrar novo Produto</h2>
       <form onSubmit={handleClickSubmit} className='registerProducto'>
         <div className='resgister-form-group'>

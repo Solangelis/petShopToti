@@ -21,15 +21,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #E0492B;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #E0492B;
-}
-
 body {
   min-height: 100vh;
   overflow: hidden;

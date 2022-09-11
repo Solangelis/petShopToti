@@ -1,5 +1,6 @@
 import api from '../api/produtos';
 import { useState } from 'react';
+import './syles/ProdutoForm.css';
 
 export default function ProdutoForm() {
   const [categoria, setCategoria] = useState('');

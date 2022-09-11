@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    
+  }
+  
+  
+  h2 {
+    color:#273238;
+    text-align: center;
+    
+  
+  }
+  
+  body {
+   background-image: url(https://i.postimg.cc/4N2D7g1G/saiba-paulistanos-preferem-cachorros-gatos-5995d2ea0c2f8-removebg-preview.png);
+   background-repeat:no-repeat;
+   background-color: #E3462C;
+   background-position: right bottom;
+   
+  }
+  
+  input {
+    border: 1px solid #000;
+     display:inline-block;
+     width: 250px;
+     text-align: center;
+     height: 23px
+  }
+  
+  label {
+    text-align: center;
+    display: block;
+    color:#f7f2e3 ;
+  }
+  
+  button {
+      width: 30%;
+      margin: 20px;
+      background: #273238;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: .1s ease all;
+  }

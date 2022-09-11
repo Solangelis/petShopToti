@@ -11,10 +11,12 @@
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "^5.2.1",
+    "components": "^0.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "styled": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

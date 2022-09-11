@@ -9,5 +9,9 @@
 .hero_content {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   padding: 5rem;
+}
+.hero_content button{
+  max-width: 200px;
 }

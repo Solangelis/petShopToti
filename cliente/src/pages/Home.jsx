@@ -7,9 +7,10 @@ export default function Home() {
       <div className='hero_container'>
         <div className='hero_content'>
           <h1>Estamos sempre aqui pela boa saúde de todos os seus Pets</h1>
+          <button>Compre agora</button>
         </div>
-        <div className="hero_image">
-          <img src="" alt="" />
+        <div className='hero_image'>
+          <img src='' alt='' />
         </div>
       </div>
     </>

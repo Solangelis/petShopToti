@@ -35,42 +35,6 @@ function Card (props) {
                         <button className="card_btn">Comprar</button>
                     </div>
                 </article>
-                <article className="Card">
-                    <div className="img_card" id="img_card"><img id="foto" className="foto" src="" alt="foto"/></div>
-                    <div className="info">
-                        <h2 id="nome_do_produto" className="nome_do_produto">{props.nome}</h2>
-                        <h3 id="marca_do_produto" className="marca">{props.marca}</h3>
-                        <h4 id="preço" className="preço">{props.preço}</h4>
-                        <p className="card_description">{props.description}</p>
-                    </div>
-                    <div className="btn_card" id="btn">
-                        <button className="card_btn">Comprar</button>
-                    </div>
-                </article>
-                <article className="Card">
-                <div className="img_card" id="img_card"><img id="foto" className="foto" src="" alt="foto"/></div>
-                    <div>
-                        <h2 id="nome_do_produto" className="nome_do_produto">{props.nome}</h2>
-                        <h3 id="marca_do_produto" className="marca">{props.marca}</h3>
-                        <h4 id="preço" className="preço">{props.preço}</h4>
-                        <p className="card_description">{props.description}</p>
-                    </div>
-                    <div className="btn_card" id="btn">
-                        <button className="card_btn">Comprar</button>
-                    </div>
-                </article>
-                <article className="Card">
-                <div className="img_card" id="img_card"><img id="foto" className="foto" src="" alt="foto"/></div>
-                    <div className="info" id="info">
-                        <h2 id="nome_do_produto" className="nome_do_produto">{props.nome}</h2>
-                        <h3 id="marca_do_produto" className="marca">{props.marca}</h3>
-                        <h4 id="preço" className="preço">{props.preço}</h4>
-                        <p className="card_description">{props.description}</p>
-                    </div>
-                    <div className="btn_card" id="btn">
-                        <button className="card_btn">Comprar</button>
-                    </div>
-                </article>
                 
             </section>
         </div>

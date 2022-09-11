@@ -1,10 +1,9 @@
-
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
 import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer'
 import paginadoProduto from './components/paginadoProduto/paginadoProduto'
+import Footer from './components/Footer/Footer'
+import './App.css'
+
+
 
 
 function App() {

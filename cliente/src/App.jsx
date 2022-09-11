@@ -5,6 +5,7 @@ import ProdutoForm from './pages/ProdutoForm';
 import PaginaDoProduto from './pages/PaginaDoProduto';
 import Footer from './components/Footer/Footer';
 import './App.css';
+import Card from './components/layout/Card';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         <Route path='/novo-produto' element={<ProdutoForm />} />
         <Route path='/produtos/:id' element={<PaginaDoProduto />} />
       </Routes>
+      <main>
+      <Card/>
+      </main>
       <footer>
       <Footer />
       </footer>

@@ -1,0 +1,13 @@
+.hero_container {
+  min-height: 60vh;
+  background-color: #E0492B;
+  color: #F7F2E3;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+}
+
+.hero_content {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+}

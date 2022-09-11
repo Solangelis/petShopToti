@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
+import Home from './pages/Home'
 import ProdutoForm from './pages/ProdutoForm'
 import PaginaDoProduto from './pages/paginadoProduto'
 import Footer from './components/Footer/Footer'

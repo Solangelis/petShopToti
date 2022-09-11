@@ -31,13 +31,12 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  min-width: 320px;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 h1 {
+  font-family: 'Baloo Bhaijaan 2';
   font-size: 3.2em;
   line-height: 1.1;
 }
@@ -49,7 +48,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #2D373C;
   cursor: pointer;
   transition: border-color 0.25s;
 }

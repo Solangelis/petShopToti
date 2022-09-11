@@ -12,6 +12,7 @@ function App() {
       <Navbar />
       <h1>Seja Benvido a Nossa App</h1>
       <h2>A nossa página se encontra em Construcao</h2>
+      <button>prueba</button>
       <div>
         <Card className="Main_Card" >
         </Card>

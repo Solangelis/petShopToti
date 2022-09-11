@@ -14,10 +14,12 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='novo-produto' element={<ProdutoForm />} />
+        <Route path='/novo-produto' element={<ProdutoForm />} />
         <Route path='/produtos/:id' element={<PaginaDoProduto />} />
       </Routes>
+      <footer>
       <Footer />
+      </footer>
     </div>
   );
 }

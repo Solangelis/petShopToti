@@ -1,60 +1,93 @@
-const Router = require('express')
-const produtoModel = require('../models/Produtos')
+import Router from 'express'
+import Produto from '../models/Produtos.js'
+import { uploadImage, deleteImage }  from '../utils/bucket.js'
+import uploadFiles from 'express-fileupload'
+import fs  from 'fs-extra'
 
 
 const router = Router()
 
 //Criar Produto
-router.post('/api/produtos', (req, resp) => {
-    const produto = produtoModel(req.body)
-    produto.save()
-        .then((dado) => resp.status(200).json(dado))
-        .catch((err) => resp.status(400).json({ message: err }).end())
+router.post('/api/produtos', uploadFiles({
+  useTempFiles: true,
+  tempFileDir: './uploads/'
+}), async (req, resp) => {
+    try {
+        const { categoria, titulo, descripcao, valor } = req.body
+        const produto = new Produto({
+            categoria,
+            titulo,
+            descripcao,
+            valor
+        })
+        
+        if(req.files?.image){
+            const resultado = await uploadImage(req.files.image.tempFilePath)
+            console.log(resultado)
+            produto.image={
+                public_id: resultado.public_id,
+                secure_url: resultado.secure_url
+            }
+            await fs.unlink(req.files.image.tempFilePath)
+        }
+        await produto.save()
+        resp.status(200).json(produto)
+
+    } catch (error) {
+        return resp.status(400).json({ message: error.message })
+    }
 })
 
 //Listar todos os Produtos
-router.get('/api/produtos', (req, resp) => {
-    produtoModel
-    .find()
-    .then((dado) => resp.status(200).json(dado))
-    .catch((err) => resp.status(400).json({ message: err }).end())
+router.get('/api/produtos', async (req, resp) => {
+    try {
+        const produtos = await Produto.find()
+        resp.status(200).json(produtos)
+        
+    } catch (error) {
+        resp.status(404).json({message: error.message})
+    }
 })
 
 
 //Listar um só Produto
-router.get('/api/produtos/:id', (req, resp) => {
-    const { id } = req.params
-
-    produtoModel
-    .findById(id)
-    .then((dado) => resp.status(200).json(dado))
-    .catch((err) => resp.status(400).json({ message: err }).end())
+router.get('/api/produtos/:id',  async (req, resp) => {
+    try {
+        const produto = await Produto.findById(req.params.id)
+        resp.status(200).json(produto)
+        
+    } catch (error) {
+        resp.status(404).json({message: error.message}).end()
+    }
 })
 
 //Editar um produto
-router.put('/api/produtos/:id', (req, resp)=>{
+router.put('/api/produtos/:id', async (req, resp)=>{
     const { id }= req.params
-    const { categoria, titulo, descripcao, valor, imageUrl } = req.body
-
-    produtoModel
-    .findByIdAndUpdate({_id: id}, {$set:{categoria, titulo, descripcao, valor, imageUrl}})
-    .then((dado) => resp.status(200).json(dado))
-    .catch((err) => resp.status(400).json({ message: err }).end())
+    const { categoria, titulo, descripcao, valor, image } = req.body
+try {
+    const produto = await Produto.findByIdAndUpdate({_id: id},{$set: {categoria, titulo, descripcao, valor, image}})
+    resp.status(200).json(produto)
+} catch (error) {
+    resp.status(400).json({ message: error.message }).end()
+}
 })
-
 
 //Deletar Produto
-router.delete('/api/produtos/:id', (req, resp) => {
-    const{id} = req.params
-    produtoModel
-    .findByIdAndDelete(id)
-    .then((dado) => resp.status(200).json(dado))
-    .catch((err) => resp.status(400).json({ message: err }).end())
+router.delete('/api/produtos/:id', async (req, resp) => {
+  try {
+    const produto = await Produto.findByIdAndDelete(req.params.id)
+    if(!produto){
+      return resp.status(404).json({Message: 'Produto Nao Encontrado'})
+    }
+
+    await deleteImage(produto.image.public_id)
+
+        resp.status(200).json(produto)
+    } catch (error) {
+        resp.status(400).json({ message: error.message }).end()
+    } 
 })
 
 
-
-
-
-
-module.exports = router
+export default router

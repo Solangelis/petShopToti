@@ -1,5 +1,5 @@
-const app = require('./src/app')
-const db = require('./db')
+import app from './src/app.js'
+import './db.js'
 
 const PORT = 3001
 app.listen(PORT, ()=>{

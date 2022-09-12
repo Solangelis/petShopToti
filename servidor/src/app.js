@@ -1,13 +1,20 @@
-const express = require('express')
-const cors = require('cors')
-const rotas = require('./Routes/index.routes') 
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import rotas from './Routes/index.routes.js';
+
+
 const app = express()
-
-app.use(express.json())
 app.use(cors())
+app.use(morgan('dev'))
 
-//middelware
+
+//middelwares
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))
+
+//Rotas
 app.use(rotas)
 
 
-module.exports = app
+export default app

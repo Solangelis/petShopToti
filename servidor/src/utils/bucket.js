@@ -1,6 +1,7 @@
-const cloudinary = require('cloudinary')
-require('dotenv').config()
+import cloudinary from 'cloudinary'
+import *  as dotenv from 'dotenv'
 
+dotenv.config()
 cloudinary.config({ 
   cloud_name: process.env.CLOUD_NAME, 
   api_key: process.env.CLOUD_API_PUBLIC_KEY, 
@@ -14,8 +15,8 @@ const uploadImage = async function (filePath) {
   })
 }
 
-const deleteImage = async function(publicId){
-  return await cloudinary.uploader.destroy(publicId) 
+const deleteImage = async function(public_id){
+  return await cloudinary.uploader.destroy(public_id) 
 }
 
-module.exports= {uploadImage, deleteImage}; 
+export  {uploadImage, deleteImage}

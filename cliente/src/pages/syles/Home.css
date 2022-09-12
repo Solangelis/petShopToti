@@ -6,6 +6,14 @@
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
 }
 
+.main_wraper{
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
 .hero_content {
   display: flex;
   flex-direction: column;

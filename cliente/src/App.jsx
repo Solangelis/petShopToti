@@ -18,9 +18,7 @@ function App() {
         <Route path='/novo-produto' element={<ProdutoForm />} />
         <Route path='/produtos/:id' element={<PaginaDoProduto />} />
       </Routes>
-      <main>
-      <Card/>
-      </main>
+      
       <footer>
       <Footer />
       </footer>

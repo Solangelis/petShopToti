@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, LogoContainer, Wrapper, Menu, MenuItem, MenuItemLink } from './Navbar.elemns'
-
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -21,34 +21,53 @@ const Navbar = () => {
         <Menu>
           <MenuItem>
             <MenuItemLink>
+              <Link to='/'>
               <div>
 
                 Home
               </div>
+              </Link>
+
+            </MenuItemLink>
+          </MenuItem>
+          
+          <MenuItem>
+            <MenuItemLink>
+            <Link to='/'>
+                <div>
+
+                  Nossos Produtos
+                </div> 
+
+            </Link>
+              
+              
+            </MenuItemLink>
+            
+              
+
+          
+          </MenuItem>
+          <MenuItem>
+            <MenuItemLink>
+            <Link to='/'>
+                <div>
+                  Novo Produto
+                </div>
+            
+              </Link>
+              
             </MenuItemLink>
           </MenuItem>
           <MenuItem>
             <MenuItemLink>
-              <div>
+            <Link to='/'>
+                <div>
+                  Contato
+                </div>
 
-                Nossos Produtos
-              </div>
-            </MenuItemLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuItemLink>
-              <div>
-
-                Novo Produto
-              </div>
-            </MenuItemLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuItemLink>
-              <div>
-
-                Contato
-              </div>
+            </Link>
+              
             </MenuItemLink>
           </MenuItem>
         </Menu>

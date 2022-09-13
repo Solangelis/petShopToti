@@ -3,6 +3,11 @@ import mongoose from 'mongoose'
 const produtoSchema = new mongoose.Schema({
    categoria:{
       type:String,
+      required: true
+   },
+   categoria_produto:{
+      type: String,
+      required: true
    },
    titulo:{
       type: String,
@@ -13,13 +18,16 @@ const produtoSchema = new mongoose.Schema({
    },
    descripcao:{
       type: String,
+      required: true
    },
    valor:{
       type: Number,
+      required: true
    },
    image:{
       public_id:String,
-      secure_url: String
+      secure_url: String,
+      
    }
 },{
    versionKey: false

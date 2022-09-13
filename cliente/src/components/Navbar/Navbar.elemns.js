@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   max-width: 1300px;
   height: 100%;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
@@ -24,8 +25,8 @@ export const LogoContainer = styled.div`
   font-family: sans-serif;
   
   img{
-    width:120px;
-    height:120px;
+    width:130px;
+    height:130px;
   }
 
   `;
@@ -41,16 +42,15 @@ export const Menu = styled.ul`
 export const MenuItem = styled.li`
   height: 100%;
 
- `;
+`;
 
-export const MenuItemLink = styled.a`
+export const MenuItemLink = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   padding: 0.5rem 2.5rem;
-  color: #F7F2E3
-  font-family: sans-serif;
+  color: #F7F2E3;
   font-size: 1rem;
   font-weight: 300;
   cursor: pointer;

@@ -1,77 +1,51 @@
-import React from "react";
-import { Container, LogoContainer, Wrapper, Menu, MenuItem, MenuItemLink } from './Navbar.elemns'
-import {Link} from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {
+  Container,
+  LogoContainer,
+  Wrapper,
+  Menu,
+  MenuItem,
+  MenuItemLink,
+} from './Navbar.elemns';
 
 const Navbar = () => {
-
   return (
-
-
-
     <Container>
       <Wrapper>
-
         <LogoContainer>
-
-          <img src="../../public/fofinhos.png" alt="" />
+          <Link to='/'>
+            <img src='../../public/fofinhos.png' alt='' />
+          </Link>
         </LogoContainer>
-
-
 
         <Menu>
           <MenuItem>
             <MenuItemLink>
               <Link to='/'>
-              <div>
-
                 Home
-              </div>
               </Link>
-
             </MenuItemLink>
           </MenuItem>
-          
+
           <MenuItem>
             <MenuItemLink>
-            <Link to='/'>
-                <div>
-
-                  Nossos Produtos
-                </div> 
-
-            </Link>
-              
-              
-            </MenuItemLink>
-            
-              
-
-          
-          </MenuItem>
-          <MenuItem>
-            <MenuItemLink>
-            <Link to='/'>
-                <div>
-                  Novo Produto
-                </div>
-            
+              <Link to='/'>
+                Nossos Produtos
               </Link>
-              
             </MenuItemLink>
           </MenuItem>
           <MenuItem>
             <MenuItemLink>
-            <Link to='/'>
-                <div>
-                  Contato
-                </div>
-
-            </Link>
-              
+              <Link to='novo-produto'>Novo Produto</Link>
+            </MenuItemLink>
+          </MenuItem>
+          <MenuItem>
+            <MenuItemLink>
+              <Link to='/contato'>Contato</Link>
             </MenuItemLink>
           </MenuItem>
         </Menu>
-
       </Wrapper>
     </Container>
   );

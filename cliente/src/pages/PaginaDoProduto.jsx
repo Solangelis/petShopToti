@@ -5,7 +5,7 @@ import './syles/PaginadoProduto.css';
 
 export default function PaginaDoProduto() {
   const params = useParams();
-  const history = useNavigate()
+  const history = useNavigate();
   const [produto, setProduto] = useState({
     image: '',
     titulo: '',
@@ -28,9 +28,14 @@ export default function PaginaDoProduto() {
   }, [params.id]);
 
   //Deletar
-  const handleDelete = async () =>{
-    const res = await api.delete('/produtos/' + params.id)
+  const handleDelete = async () => {
+    const res = await api.delete('/produtos/' + params.id);
     history('/');
+  };
+
+  //Update
+  const handleUpdate = () =>{
+    console.log('Editado')
   }
 
   return (
@@ -44,8 +49,10 @@ export default function PaginaDoProduto() {
           <span className='produ_cat'>{produto.categoriaProduto}</span>
           <p className='produ_descrip'>{produto.descripcao}</p>
           <div className='btn_group'>
-            <button className='btn_update'>Editar</button>
-            <button className='btn_delete'onClick={handleDelete}>Deletar</button>
+            <button className='btn_update' onClick={handleUpdate} >Editar</button>
+            <button className='btn_delete' onClick={handleDelete}>
+              Deletar
+            </button>
           </div>
         </div>
         <div className='produ_valor'>

@@ -5,7 +5,7 @@ const produtoSchema = new mongoose.Schema({
       type:String,
       required: true
    },
-   categoria_produto:{
+   categoriaProduto:{
       type: String,
       required: true
    },

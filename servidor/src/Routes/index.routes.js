@@ -13,10 +13,10 @@ router.post('/api/produtos', uploadFiles({
   tempFileDir: './uploads/'
 }), async (req, resp) => {
     try {
-        const { categoria, categoria_produto, titulo, descripcao, valor } = req.body
+        const { categoria, categoriaProduto, titulo, descripcao, valor } = req.body
         const produto = new Produto({
             categoria,
-            categoria_produto,
+            categoriaProduto,
             titulo,
             descripcao,
             valor

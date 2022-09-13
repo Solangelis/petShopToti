@@ -1,17 +1,9 @@
 .hero_container {
-  min-height: 70vh;
-  background-color: #E0492B;
-  color: #F7F2E3;
+  min-height: 80vh;
+  background-color: #e0492b;
+  color: #f7f2e3;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-}
-
-.main_wraper{
-  width: 100%;
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
 }
 
 .hero_content {
@@ -20,6 +12,28 @@
   align-items: flex-start;
   padding: 5rem;
 }
-.hero_content button{
+.hero_content button {
   max-width: 200px;
+}
+
+.categoria_section {
+  padding: 5rem;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: #f5ca45;
+  position: relative;
+}
+
+.categoria_section h2{
+  font-size: 3rem;
+}
+
+.main_wraper {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }

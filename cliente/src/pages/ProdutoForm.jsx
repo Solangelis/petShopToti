@@ -1,5 +1,6 @@
 import api from '../api/produtos';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './syles/ProdutoForm.css';
 
 export default function ProdutoForm() {
@@ -15,10 +16,12 @@ export default function ProdutoForm() {
     e.preventDefault();
     const data = new FormData();
     data.append('categoria', categoria);
+    data.append('categoriaProduto', categoriaProduto)
     data.append('titulo', titulo);
     data.append('descripcao', descripcao);
     data.append('valor', valor);
     data.append('image', image);
+
 
     const response = await api.post('/produtos', data);
     console.log('Seu Contato foi salvo com sucesso', response);
@@ -40,13 +43,13 @@ export default function ProdutoForm() {
         </div>
 
         <div className='resgister-form-group'>
-          <label htmlFor='categoria'>Categoria de Produto</label>
+          <label htmlFor='categoriaProduto'>Categoria de Produto</label>
           <input
             type='text'
-            name='categoria_produto'
-            id='categoria_produto'
+            name='categoriaProduto'
+            id='categoriaProduto'
             onChange={(e) => setCategoriaProduto(e.target.value)}
-            placeholder='Categoria'
+            placeholder='Categoria de Produto'
           />
         </div>
 

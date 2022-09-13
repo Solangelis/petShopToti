@@ -1,27 +1,52 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import api from '../api/produtos';
+import { useParams } from 'react-router-dom';
+import './syles/PaginadoProduto.css';
 
 export default function PaginaDoProduto() {
+  const params = useParams();
+  const [produto, setProduto] = useState({
+    image: '',
+    titulo: '',
+    categoriaProduto: '',
+    descripcao: '',
+    valor: '',
+  });
+  const fetchProduto = async () => {
+    const res = await api.get('/produtos/' +  params.id);
+    setProduto(res.data);
+    console.log(res);
+  };
+  var porcentagem = (produto.valor) * 20/100
+  porcentagem += produto.valor
+  
+
+  useEffect(() => {
+    fetchProduto()
+  }, [params.id]);
   return (
-    <div className='App'>
-      <img src='../images/higienica.jpg' />
-      <p>Areia Higiênica de Bentonita Econômica para Gatos - 4 kg BT03200</p>
-      <br></br>
-      <p>R$ 10,41</p>
-      <img src='../images/higienica1.jpg' />
-      <p>Areia Higiênica de Bentonita Premium para Gatos</p>
-      <br></br>
-      <br></br>
-      <p>R$ 34,97</p>
-      <img src='../images/raçao.jpg' />:
-      <p>
-        FRETE GRÁTIS Ração GranPlus Frango e Arroz para Gatos Filhotes - 3 Kg 84
-      </p>
-      <br></br>
-      <p>R$ 63,90</p>
-      <img src='../images/sanitario.jpg' />:
-      <p>Areia Sanitária Cristais de Sílica para Gatos - 1,6 Kg SL01118</p>
-      <br></br>
-      <p>R$ 39,90</p>
-    </div>
+    <section className='produ_container'>
+      <div className='produ_img'>
+        <img src={produto.image.secure_url} alt={produto.titulo} />
+      </div>
+      <div className='produ_info'>
+        <div className='produ_txt'>
+          <h2 className='produ_title'>{produto.titulo}</h2>
+          <span className='produ_cat'>{produto.categoriaProduto}</span>
+          <p className='produ_descrip'>{produto.descripcao}</p>
+          <div className='btn_group'>
+            <button className='btn_update'>Editar</button>
+            <button className='btn_delete'>Deletar</button>
+          </div>
+        </div>
+        <div className='produ_valor'>
+          <span className='valor_real'>
+            R$ {porcentagem} 
+            
+            </span>
+          <p>R$ {produto.valor}</p>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import api from '../api/produtos';
 import Card from '../components/Cards/Card';
+import { useNavigate } from 'react-router-dom'
 import './syles/Home.css';
 
 export default function Home() {
   const [produtos, setProdutos] = useState([]);
+  const history = useNavigate()
 
   const fetchProdutos = async () => {
     const res = await api.get('/produtos');
@@ -39,6 +41,7 @@ export default function Home() {
                 categoria={produto.categoria}
                 descripcao={produto.descripcao}
                 valor={produto.valor}
+                onClick={() => history(`/produtos/${produto._id}`)}
               />
             ))}
           </div>

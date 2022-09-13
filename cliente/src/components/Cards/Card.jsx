@@ -5,11 +5,11 @@ let sectionconteudos = document.querySelector('.conteudo');
 // endereço do Bd que contem os arquivos json
 const url = 'cards.json';
 
-function Card({ image, titulo, categoria, descripcao, valor }) {
+function Card({ image, titulo, categoria, descripcao, valor, onClick }) {
   return (
     <section className='cards_section'>
       <div className='cards_container'>
-        <article className='card'>
+        <article className='card' onClick={onClick}>
           <div className='img_card'>
             <img id='foto' className='produto_img' src={image} alt='foto' />
           </div>

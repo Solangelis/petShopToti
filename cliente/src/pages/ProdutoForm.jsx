@@ -4,10 +4,12 @@ import './syles/ProdutoForm.css';
 
 export default function ProdutoForm() {
   const [categoria, setCategoria] = useState('');
+  const [categoriaProduto, setCategoriaProduto] = useState('')
   const [titulo, setTitulo] = useState('');
   const [descripcao, setDescripcao] = useState('');
   const [valor, setValor] = useState('');
   const [image, setImage] = useState();
+
 
   const handleClickSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ export default function ProdutoForm() {
     const response = await api.post('/produtos', data);
     console.log('Seu Contato foi salvo com sucesso', response);
   };
-  
+
   return (
     <div className='form_container'>
       <h2>Cadastrar novo Produto</h2>
@@ -33,6 +35,17 @@ export default function ProdutoForm() {
             name='categoria'
             id='categoria'
             onChange={(e) => setCategoria(e.target.value)}
+            placeholder='Categoria'
+          />
+        </div>
+
+        <div className='resgister-form-group'>
+          <label htmlFor='categoria'>Categoria de Produto</label>
+          <input
+            type='text'
+            name='categoria_produto'
+            id='categoria_produto'
+            onChange={(e) => setCategoriaProduto(e.target.value)}
             placeholder='Categoria'
           />
         </div>

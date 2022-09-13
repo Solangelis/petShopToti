@@ -23,7 +23,6 @@ router.post('/api/produtos', uploadFiles({
         
         if(req.files?.image){
             const resultado = await uploadImage(req.files.image.tempFilePath)
-            console.log(resultado)
             produto.image={
                 public_id: resultado.public_id,
                 secure_url: resultado.secure_url
@@ -31,7 +30,7 @@ router.post('/api/produtos', uploadFiles({
             await fs.unlink(req.files.image.tempFilePath)
         }
         await produto.save()
-        resp.status(200).json(produto)
+        return resp.status(200).json(produto)
 
     } catch (error) {
         return resp.status(400).json({ message: error.message })
@@ -62,14 +61,37 @@ router.get('/api/produtos/:id',  async (req, resp) => {
 })
 
 //Editar um produto
-router.put('/api/produtos/:id', async (req, resp)=>{
+router.put('/api/produtos/:id', uploadFiles({
+  useTempFiles: true,
+  tempFileDir: './uploads/'
+}), async (req, resp)=>{
+  try {
     const { id }= req.params
-    const { categoria, titulo, descripcao, valor, image } = req.body
-try {
-    const produto = await Produto.findByIdAndUpdate({_id: id},{$set: {categoria, titulo, descripcao, valor, image}})
-    resp.status(200).json(produto)
+    const produto = await Produto.findByIdAndUpdate(id, req.body, {
+      new: true
+    })
+    console.log(produto)
+
+    if(!produto){
+      return resp.status(204).json({Message: 'Produto nao encontrado'})
+    }
+
+    if(produto.image?.public_id){
+      await deleteImage(produto.image.public_id)
+      const resultado = await uploadImage(req.files.image.tempFilePath)
+            produto.image={
+                public_id: resultado.public_id,
+                secure_url: resultado.secure_url
+            }
+            await fs.unlink(req.files.image.tempFilePath)
+      produto.save()
+      
+            
+    }
+      return resp.status(200).json(produto)
+
 } catch (error) {
-    resp.status(400).json({ message: error.message }).end()
+    return resp.status(400).json({ message: error.message }).end()
 }
 })
 
@@ -81,8 +103,10 @@ router.delete('/api/produtos/:id', async (req, resp) => {
       return resp.status(404).json({Message: 'Produto Nao Encontrado'})
     }
 
-    await deleteImage(produto.image.public_id)
-
+    if(produto.image?.public_id){
+      await deleteImage(produto.image.public_id)
+    }
+    
         resp.status(200).json(produto)
     } catch (error) {
         resp.status(400).json({ message: error.message }).end()

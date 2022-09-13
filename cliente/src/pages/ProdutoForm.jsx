@@ -1,6 +1,6 @@
 import api from '../api/produtos';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './syles/ProdutoForm.css';
 
 export default function ProdutoForm() {
@@ -10,6 +10,8 @@ export default function ProdutoForm() {
   const [descripcao, setDescripcao] = useState('');
   const [valor, setValor] = useState('');
   const [image, setImage] = useState();
+
+  const history = useNavigate()
 
 
   const handleClickSubmit = async (e) => {
@@ -25,6 +27,8 @@ export default function ProdutoForm() {
 
     const response = await api.post('/produtos', data);
     console.log('Seu Contato foi salvo com sucesso', response);
+
+    history('/')
   };
 
   return (

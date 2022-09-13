@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import api from '../api/produtos';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './syles/PaginadoProduto.css';
 
 export default function PaginaDoProduto() {
   const params = useParams();
+  const history = useNavigate()
   const [produto, setProduto] = useState({
     image: '',
     titulo: '',
@@ -12,18 +13,26 @@ export default function PaginaDoProduto() {
     descripcao: '',
     valor: '',
   });
+  //Mostrar Produto
   const fetchProduto = async () => {
-    const res = await api.get('/produtos/' +  params.id);
+    const res = await api.get('/produtos/' + params.id);
     setProduto(res.data);
     console.log(res);
   };
-  var porcentagem = (produto.valor) * 20/100
-  porcentagem += produto.valor
-  
+  //Valor porcentagem dinamico
+  var porcentagem = (produto.valor * 20) / 100;
+  porcentagem += produto.valor;
 
   useEffect(() => {
-    fetchProduto()
+    fetchProduto();
   }, [params.id]);
+
+  //Deletar
+  const handleDelete = async () =>{
+    const res = await api.delete('/produtos/' + params.id)
+    history('/');
+  }
+
   return (
     <section className='produ_container'>
       <div className='produ_img'>
@@ -36,14 +45,11 @@ export default function PaginaDoProduto() {
           <p className='produ_descrip'>{produto.descripcao}</p>
           <div className='btn_group'>
             <button className='btn_update'>Editar</button>
-            <button className='btn_delete'>Deletar</button>
+            <button className='btn_delete'onClick={handleDelete}>Deletar</button>
           </div>
         </div>
         <div className='produ_valor'>
-          <span className='valor_real'>
-            R$ {porcentagem} 
-            
-            </span>
+          <span className='valor_real'>R$ {porcentagem}</span>
           <p>R$ {produto.valor}</p>
         </div>
       </div>

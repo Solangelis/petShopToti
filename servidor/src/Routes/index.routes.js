@@ -84,7 +84,7 @@ router.put('/api/produtos/:id', uploadFiles({
                 secure_url: resultado.secure_url
             }
             await fs.unlink(req.files.image.tempFilePath)
-      produto.save()
+            await produto.save()
       
             
     }

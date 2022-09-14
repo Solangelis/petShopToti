@@ -4,6 +4,10 @@
   color: #f7f2e3;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  background-image: url(https://i.postimg.cc/rwz6ysy6/cachorro11.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 .hero_content {

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ProdutoForm from './pages/ProdutoForm';
 import PaginaDoProduto from './pages/PaginaDoProduto';
 import Contato from './pages/Contato';
+import NaoEncontrada from './pages/NaoEncontrada';
 import Footer from './components/Footer/Footer';
 import './App.css';
 
@@ -16,8 +17,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/novo-produto' element={<ProdutoForm />} />
+        <Route path='/editar-produto/:id' element={<ProdutoForm />} />
         <Route path='/produtos/:id' element={<PaginaDoProduto />} />
         <Route path='/contato' element={<Contato />} />
+        <Route path='*' element={<NaoEncontrada />} />
       </Routes>
       <footer>
         <Footer />

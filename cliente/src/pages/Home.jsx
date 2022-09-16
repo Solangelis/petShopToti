@@ -2,7 +2,7 @@ import { useProdutos } from '../context/ProdutosProvider';
 import Card from '../components/Cards/Card';
 import { useNavigate, Link } from 'react-router-dom';
 import './syles/Home.css';
-import CategoryCards from '../components/CategoryCards/CategoryCards';
+import CardHome from '../components/CardHome/CardHome';
 
 const Home = () => {
   const { produtos } = useProdutos();
@@ -60,6 +60,7 @@ const Home = () => {
               />
             ))}
           </div>
+          <CardHome/>
         </section>
       </main>
     </>

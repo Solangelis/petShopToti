@@ -1,13 +1,14 @@
 import React from "react";
-import imagepet from  '../imagCard/imagepet.jpg'
+import imagepet from  '../imagCard/imagepet.png'
+import './CardHome'
 
 
 export function CardHome() {
     return(
        <div>
-        <h1>O que os clientes falam sobre nossa empressa </h1>
+        <h2>O que os clientes falam sobre nossa empressa </h2>
 <p>Os clientes falam que eles sentem com alegria quando os pets são áqui</p>
-<img src={imagepet} alt='imagepet' width ={'40px'} />
+<img src={imagepet} alt='imagepet' />
        </div> 
     )
 }

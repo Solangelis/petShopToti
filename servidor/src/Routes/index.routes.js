@@ -67,18 +67,16 @@ router.put('/api/produtos/:id', uploadFiles({
   tempFileDir: './uploads/'
 }), async (req, resp)=>{
   try {
-    const { id }= req.params
-    const produto = await Produto.findByIdAndUpdate(id, req.body, {
+    const produto = await Produto.findByIdAndUpdate(req.params.id, req.body , {
       new: true
     })
-    console.log(produto)
-
+    console.log(req.body);
     if(!produto){
-      return resp.status(204).json({Message: 'Produto nao encontrado'})
+      return resp.status(404).send('<h2>Produto Nao Encontrado</h2>')
     }
 
-    if(produto.image?.public_id){
-      await deleteImage(produto.image.public_id)
+    if(req.files?.image){
+      await deleteImage(produto.image)
       const resultado = await uploadImage(req.files.image.tempFilePath)
             produto.image={
                 public_id: resultado.public_id,

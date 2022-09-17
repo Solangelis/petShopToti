@@ -3,6 +3,7 @@ import api from '../api/produtos';
 import Card from '../components/Cards/Card';
 import { useNavigate } from 'react-router-dom'
 import './syles/Home.css';
+import CardHome from '../components/CardHome/CardHome';
 
 
 export default function Home() {
@@ -46,6 +47,7 @@ export default function Home() {
               />
             ))}
           </div>
+          <CardHome/>
         </section>
       </main>
     </>

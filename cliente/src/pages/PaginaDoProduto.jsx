@@ -5,7 +5,7 @@ import './syles/PaginadoProduto.css';
 
 export default function PaginaDoProduto() {
   const params = useParams();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [produto, setProduto] = useState({
     image: '',
     titulo: '',
@@ -17,7 +17,6 @@ export default function PaginaDoProduto() {
   const fetchProduto = async () => {
     const res = await api.get('/produtos/' + params.id);
     setProduto(res.data);
-    console.log(res);
   };
   //Valor porcentagem dinamico
   var porcentagem = (produto.valor * 20) / 100;
@@ -30,14 +29,9 @@ export default function PaginaDoProduto() {
   //Deletar
   const handleDelete = async () => {
     const res = await api.delete('/produtos/' + params.id);
-    history('/');
+    navigate('/');
   };
-
-  //Update
-  const handleUpdate = () =>{
-    console.log('Editado')
-  }
-
+  
   return (
     <section className='produ_container'>
       <div className='produ_img'>
@@ -49,7 +43,12 @@ export default function PaginaDoProduto() {
           <span className='produ_cat'>{produto.categoriaProduto}</span>
           <p className='produ_descrip'>{produto.descripcao}</p>
           <div className='btn_group'>
-            <button className='btn_update' onClick={handleUpdate} >Editar</button>
+            <button
+              className='btn_update'
+              onClick={() => navigate('/editar-produto/' + params.id)}
+            >
+              Editar
+            </button>
             <button className='btn_delete' onClick={handleDelete}>
               Deletar
             </button>

@@ -6,8 +6,9 @@
     font-size: 18;
 }
 
-.div-imagem{
-    width: 40vw;
+#title{
+    text-align: center;
+    justify-content: center;
 }
 
 .div-resumo{

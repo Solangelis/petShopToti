@@ -1,5 +1,5 @@
 import React from "react";
-import imagepet from './imagCard/imagepet.jpg'   
+import imagepet from  '../imagCard/imagepet.jpg'
 
 
 export function CardHome() {

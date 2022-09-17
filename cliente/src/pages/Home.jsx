@@ -4,6 +4,7 @@ import Card from '../components/Cards/Card';
 import { useNavigate } from 'react-router-dom'
 import './syles/Home.css';
 
+
 export default function Home() {
   const [produtos, setProdutos] = useState([]);
   const history = useNavigate()

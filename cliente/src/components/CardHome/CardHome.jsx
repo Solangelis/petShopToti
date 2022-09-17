@@ -6,8 +6,8 @@ import './CardHome'
 export function CardHome() {
     return(
        <div>
-        <h2>O que os clientes falam sobre nossa empressa </h2>
-<p>Os clientes falam que eles sentem com alegria quando os pets são áqui</p>
+        <h2>A melhor ração, para sua melhor companhia! ...</h2>
+<p>Compartilhe fotos e vídeos de bichinhos antes e depois de passarem pelo banho e tosa do seu estabelecimento</p>
 <img src={imagepet} alt='imagepet' />
        </div> 
     )

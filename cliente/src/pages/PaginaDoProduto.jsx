@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import api from '../api/produtos';
+import { useProdutos } from '../context/ProdutosProvider' 
 import { useParams, useNavigate } from 'react-router-dom';
 import './syles/PaginadoProduto.css';
 
 export default function PaginaDoProduto() {
+  const { deleteProduct } = useProdutos();
   const params = useParams();
   const navigate = useNavigate();
   const [produto, setProduto] = useState({
@@ -27,10 +28,10 @@ export default function PaginaDoProduto() {
   }, [params.id]);
 
   //Deletar
-  const handleDelete = async () => {
-    const res = await api.delete('/produtos/' + params.id);
-    navigate('/');
-  };
+  // const handleDelete = async () => {
+  //   const res = await api.delete('/produtos/' + params.id);
+  //   navigate('/');
+  // };
   
   return (
     <section className='produ_container'>
@@ -49,7 +50,7 @@ export default function PaginaDoProduto() {
             >
               Editar
             </button>
-            <button className='btn_delete' onClick={handleDelete}>
+            <button className='btn_delete' onClick={() => deleteProduct(params.id)}>
               Deletar
             </button>
           </div>

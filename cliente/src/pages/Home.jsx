@@ -1,29 +1,20 @@
-import { useState, useEffect } from 'react';
-import api from '../api/produtos';
+import { useProdutos } from '../context/ProdutosProvider';
 import Card from '../components/Cards/Card';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom';
 import './syles/Home.css';
 
-export default function Home() {
-  const [produtos, setProdutos] = useState([]);
-  const history = useNavigate()
 
-  const fetchProdutos = async () => {
-    const res = await api.get('/produtos');
-    setProdutos(res.data);
-    console.log(res.data);
-  };
-
-  useEffect(() => {
-    fetchProdutos();
-  }, []);
-
+const Home = () => {
+  const { produtos } = useProdutos();
+  const navigate = useNavigate();
   return (
     <>
       <div className='hero_container'>
         <div className='hero_content'>
           <h1>Estamos sempre aqui pela boa saúde de todos os seus Pets</h1>
-          <button>Compre agora</button>
+          <Link to='/criar-produto'>
+            <button>Compre agora</button>
+          </Link>
         </div>
         <div className='hero_image'>
           <img src='' alt='' />
@@ -36,12 +27,12 @@ export default function Home() {
             {produtos.map((produto) => (
               <Card
                 key={produto._id}
-                image={produto.image.secure_url}
+                image={produto.image ? produto.image.secure_url : null}
                 titulo={produto.titulo}
                 categoria={produto.categoria}
                 descripcao={produto.descripcao}
                 valor={produto.valor}
-                onClick={() => history(`/produtos/${produto._id}`)}
+                onClick={() => navigate(`/produtos/${produto._id}`)}
               />
             ))}
           </div>
@@ -49,4 +40,6 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export default Home;

@@ -1,9 +1,9 @@
-import api from '../api/produtos';
+// import {api} from '../api/produtos.api';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './syles/ProdutoForm.css';
 
-export default function ProdutoForm() {
+ export default function ProdutoForm() {
   const [categoria, setCategoria] = useState('');
   const [categoriaProduto, setCategoriaProduto] = useState('')
   const [titulo, setTitulo] = useState('');
@@ -22,22 +22,22 @@ export default function ProdutoForm() {
   const navigate = useNavigate()
   const params = useParams()
 
-  const fetchEdit = async () =>{
-    const res = await api.get('/produtos/' + params.id);
-    setEditCategoria(res.data.categoria);
-    setEditCategoriaProduto(res.data.categoriaProduto);
-    setEditTitulo(res.data.titulo);
-    setEditDescripcao(res.data.descripcao);
-    setEditValor(res.data.valor)
-    setEditImage(res.data.image)
-    console.log(res.data);
-  }
+  // const fetchEdit = async () =>{
+  //   const res = await api.get('/produtos/' + params.id);
+  //   setEditCategoria(res.data.categoria);
+  //   setEditCategoriaProduto(res.data.categoriaProduto);
+  //   setEditTitulo(res.data.titulo);
+  //   setEditDescripcao(res.data.descripcao);
+  //   setEditValor(res.data.valor)
+  //   setEditImage(res.data.image)
+  //   console.log(res.data);
+  // }
   
-  useEffect(() => {
-    if(params.id){
-      fetchEdit();
-    }
-  }, [])
+  // useEffect(() => {
+  //   if(params.id){
+  //     fetchEdit();
+  //   }
+  // }, [])
   
   const handleEdit = async (e) => {
     e.preventDefault()

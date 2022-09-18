@@ -6,18 +6,20 @@ import PaginaDoProduto from './pages/PaginaDoProduto';
 import Contato from './pages/Contato';
 import NaoEncontrada from './pages/NaoEncontrada';
 import Footer from './components/Footer/Footer';
-import './App.css';
+import { ProdutosProvider } from './context/ProdutosProvider';
+import FormProdutos from './pages/FormProdutos';
 
 function App() {
   return (
-    <div className='App'>
+    <ProdutosProvider>
       <header>
         <Navbar />
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/novo-produto' element={<ProdutoForm />} />
-        <Route path='/editar-produto/:id' element={<ProdutoForm />} />
+        <Route path='/criar-produto' element={<FormProdutos />} />
+        {/* <Route path='/novo-produto' element={<ProdutoForm />} />
+        <Route path='/editar-produto/:id' element={<ProdutoForm />} /> */}
         <Route path='/produtos/:id' element={<PaginaDoProduto />} />
         <Route path='/contato' element={<Contato />} />
         <Route path='*' element={<NaoEncontrada />} />
@@ -25,7 +27,7 @@ function App() {
       <footer>
         <Footer />
       </footer>
-    </div>
+    </ProdutosProvider>
   );
 }
 export default App;

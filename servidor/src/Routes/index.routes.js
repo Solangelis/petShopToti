@@ -14,22 +14,23 @@ router.post('/api/produtos', uploadFiles({
 }), async (req, resp) => {
     try {
         const { categoria, categoriaProduto, titulo, descripcao, valor } = req.body
+        let image = null
+        if(req.files?.image){
+            const resultado = await uploadImage(req.files.image.tempFilePath)
+            image={
+                public_id: resultado.public_id,
+                secure_url: resultado.secure_url
+            }
+            await fs.remove(req.files.image.tempFilePath)
+        }
         const produto = new Produto({
             categoria,
             categoriaProduto,
             titulo,
             descripcao,
-            valor
+            valor,
+            image
         })
-        
-        if(req.files?.image){
-            const resultado = await uploadImage(req.files.image.tempFilePath)
-            produto.image={
-                public_id: resultado.public_id,
-                secure_url: resultado.secure_url
-            }
-            await fs.unlink(req.files.image.tempFilePath)
-        }
         await produto.save()
         return resp.status(200).json(produto)
 
@@ -70,6 +71,14 @@ router.put('/api/produtos/:id', uploadFiles({
   tempFileDir: './uploads/'
 }), async (req, resp)=>{
   try {
+    if(req.files?.image){
+      const resultado = await uploadImage(req.files.image.tempFilePath)
+      await fs.remove(req.files.image.tempFilePath)
+            req.body.image={
+                public_id: resultado.public_id,
+                secure_url: resultado.secure_url
+            }
+    }
     const produto = await Produto.findByIdAndUpdate(req.params.id, req.body , {
       new: true
     })
@@ -77,19 +86,7 @@ router.put('/api/produtos/:id', uploadFiles({
     if(!produto){
       return resp.status(404).send('<h2>Produto Nao Encontrado</h2>')
     }
-
-    if(req.files?.image){
-      await deleteImage(produto.image)
-      const resultado = await uploadImage(req.files.image.tempFilePath)
-            produto.image={
-                public_id: resultado.public_id,
-                secure_url: resultado.secure_url
-            }
-            await fs.unlink(req.files.image.tempFilePath)
-            await produto.save()
-
-    }
-      return resp.status(200).json(produto)
+    return resp.status(200).json(produto)
 
 } catch (error) {
     return resp.status(400).json({ message: error.message }).end()

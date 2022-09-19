@@ -8,6 +8,7 @@ import NaoEncontrada from './pages/NaoEncontrada';
 import Footer from './components/Footer/Footer';
 import { ProdutosProvider } from './context/ProdutosProvider';
 import FormProdutos from './pages/FormProdutos';
+import CategoryPage from './pages/CategoryPage';
 
 function App() {
   return (
@@ -18,15 +19,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/criar-produto' element={<FormProdutos />} />
-        {/* <Route path='/novo-produto' element={<ProdutoForm />} /> */}
+        {/* <Route path='/category' element={<CategoryPage />} /> */}
         <Route path='/editar-produto/:id' element={<FormProdutos />} />
         <Route path='/produtos/:id' element={<PaginaDoProduto />} />
         <Route path='/contato' element={<Contato />} />
         <Route path='*' element={<NaoEncontrada />} />
       </Routes>
-      <footer>
-        <Footer />
-      </footer>
     </ProdutosProvider>
   );
 }

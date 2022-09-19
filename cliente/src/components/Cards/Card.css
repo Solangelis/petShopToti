@@ -1,7 +1,7 @@
 .card {
   width: 100%;
-  max-width: 200px;
-  min-height: 300px;
+  max-width: 120px;
+  min-height: 200px;
   background-color: #2D373C;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   display: flex;
@@ -31,6 +31,28 @@
 }
 
 .info_cards h4{
-  font-weight: 400;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.card_ratesbtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card_ratesbtn span {
   font-size: 14px;
+  font-weight: 300;
+}
+
+.btn_plus {
+  width: 20px;
+  height: 20px;
+  background-color: #f5ca45;
+  color: #2D373C;
+  border-radius: 50%;
+  border: 2px solid #e0492b;
+  padding: .1rem;
+  cursor: pointer;
 }

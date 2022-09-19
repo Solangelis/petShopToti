@@ -1,11 +1,7 @@
 import './Card.css';
+import { VscAdd } from 'react-icons/vsc';
 
-//section que contem as cards
-let sectionconteudos = document.querySelector('.conteudo');
-// endereço do Bd que contem os arquivos json
-const url = 'cards.json';
-
-function Card({ image, titulo, categoria, descripcao, valor, onClick }) {
+function Card({ image, titulo, valor, onClick }) {
   return (
     <section className='cards_section'>
       <div className='cards_container'>
@@ -16,15 +12,15 @@ function Card({ image, titulo, categoria, descripcao, valor, onClick }) {
           <div className='info_cards'>
             <div className='card_title'>
               <h4>{titulo}</h4>
-              <span> {categoria} </span>
             </div>
-            <div className='card_rates'>
-              <span className='valor'>R$ {valor}</span>
-              {/* <p className='card_description'>{descripcao}</p> */}
+            <div className='card_ratesbtn'>
+              <div className='card_rates'>
+                <span className='valor'>R$ {valor}</span>
+              </div>
+              <div className='btn_card' id='btn'>
+                <VscAdd className='btn_plus' />
+              </div>
             </div>
-            {/* <div className='btn_card' id='btn'>
-              <button className='card_btn'>Comprar</button>
-            </div> */}
           </div>
         </article>
       </div>

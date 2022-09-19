@@ -4,7 +4,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import './syles/Home.css';
 import CategoryCards from '../components/CategoryCards/CategoryCards';
 
-
 const Home = () => {
   const { produtos } = useProdutos();
   const navigate = useNavigate();
@@ -24,9 +23,12 @@ const Home = () => {
       <main className='main'>
         <section className='categoria_section'>
           <h2>Categorias em destaque</h2>
-          <div className="category_cards_container">
-            
-          <CategoryCards />
+          <div className='category_cards_container'>
+            <CategoryCards image={5} categoria={'Coelhos'} />
+            <CategoryCards image={2} categoria={'Gatos'} />
+            <CategoryCards image={1} categoria={'Cachorros'} />
+            <CategoryCards image={3} categoria={'Pássaros'} />
+            <CategoryCards image={4} categoria={'Peixes'} />
           </div>
           <div className='main_wraper'>
             {produtos.map((produto) => (

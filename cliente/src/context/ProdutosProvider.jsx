@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import Footer from '../components/Footer/Footer';
 import {
   obterReqProdutos,
   criarReqProdutos,
@@ -65,6 +66,7 @@ export const ProdutosProvider = ({ children }) => {
     <produtosContext.Provider
       value={{
         produtos,
+        setProdutos,
         createProduct,
         deleteProduct,
         getProduct,
@@ -72,6 +74,9 @@ export const ProdutosProvider = ({ children }) => {
       }}
     >
       {children}
+      <footer>
+        <Footer />
+      </footer>
     </produtosContext.Provider>
   );
 };

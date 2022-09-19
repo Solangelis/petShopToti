@@ -4,34 +4,29 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './syles/PaginadoProduto.css';
 
 export default function PaginaDoProduto() {
-  const { deleteProduct } = useProdutos();
+  const { deleteProduct, getProduct } = useProdutos();
   const params = useParams();
   const navigate = useNavigate();
+
   const [produto, setProduto] = useState({
-    image: '',
     titulo: '',
+    categoria: '',
     categoriaProduto: '',
     descripcao: '',
     valor: '',
+    image: ''
   });
-  //Mostrar Produto
-  const fetchProduto = async () => {
-    const res = await api.get('/produtos/' + params.id);
-    setProduto(res.data);
-  };
-  //Valor porcentagem dinamico
-  var porcentagem = (produto.valor * 20) / 100;
+  
+  let porcentagem = (produto.valor * 20) / 100;
   porcentagem += produto.valor;
 
   useEffect(() => {
-    fetchProduto();
-  }, [params.id]);
+    (async() => {
+      const produto = await getProduct(params.id);
+      setProduto(produto)
+    })();
+  }, []);
 
-  //Deletar
-  // const handleDelete = async () => {
-  //   const res = await api.delete('/produtos/' + params.id);
-  //   navigate('/');
-  // };
   
   return (
     <section className='produ_container'>
@@ -50,7 +45,10 @@ export default function PaginaDoProduto() {
             >
               Editar
             </button>
-            <button className='btn_delete' onClick={() => deleteProduct(params.id)}>
+            <button
+              className='btn_delete'
+              onClick={() => deleteProduct(params.id)}
+            >
               Deletar
             </button>
           </div>

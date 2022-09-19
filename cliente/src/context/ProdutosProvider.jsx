@@ -3,6 +3,8 @@ import {
   obterReqProdutos,
   criarReqProdutos,
   deleteReqProdutos,
+  obterReqProduto,
+  updateReqProdutos,
 } from '../api/produtos.api';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,6 +37,26 @@ export const ProdutosProvider = ({ children }) => {
     navigate('/');
   };
 
+  const getProduct = async (id) => {
+    try {
+      const res = await obterReqProduto(id);
+      return res.data
+    } catch (error) {
+      console.log(error)
+      
+    }
+  }
+
+  const updateProduct = async (id, produto) => {
+    try {
+      const res = await updateReqProdutos(id, produto)
+      setProdutos(produtos.map((produto) => produto._id === id ? res.data : produto))
+    } catch (error) {
+      console.error({'Message': error})
+    }
+    
+  }
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -45,6 +67,8 @@ export const ProdutosProvider = ({ children }) => {
         produtos,
         createProduct,
         deleteProduct,
+        getProduct,
+        updateProduct,
       }}
     >
       {children}

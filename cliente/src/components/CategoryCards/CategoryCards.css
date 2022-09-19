@@ -1,0 +1,39 @@
+.category_wrapper {
+  width: 100%;
+  max-width: 600px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category_cards {
+  width: 120px;
+  height: 120px;
+  border-radius: 25px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+.category_cards img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 25px;
+}
+
+.category_cards h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: .3s ease-in-out all;
+}
+
+.category_cards, h3:hover {
+  font-size: 1.5rem;
+  cursor: pointer;
+}

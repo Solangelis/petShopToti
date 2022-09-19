@@ -2,6 +2,7 @@ import { useProdutos } from '../context/ProdutosProvider';
 import Card from '../components/Cards/Card';
 import { useNavigate, Link } from 'react-router-dom';
 import './syles/Home.css';
+import CategoryCards from '../components/CategoryCards/CategoryCards';
 
 
 const Home = () => {
@@ -23,6 +24,10 @@ const Home = () => {
       <main className='main'>
         <section className='categoria_section'>
           <h2>Categorias em destaque</h2>
+          <div className="category_cards_container">
+            
+          <CategoryCards />
+          </div>
           <div className='main_wraper'>
             {produtos.map((produto) => (
               <Card

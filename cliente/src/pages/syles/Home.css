@@ -41,3 +41,10 @@
   justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
+
+.hero_about {
+  background-color:#FBF4DF;
+  width: 120%;
+  padding: 15px;
+}

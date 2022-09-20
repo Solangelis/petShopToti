@@ -48,7 +48,9 @@ export default function Home() {
               />
             ))}
           </div>
+          <div className='hero_about'>
           <About/>
+          </div>
           <CardHome/>
         </section>
       </main>

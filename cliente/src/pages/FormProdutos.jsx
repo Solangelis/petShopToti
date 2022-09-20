@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { useProdutos } from '../context/ProdutosProvider';
 import { useNavigate, useParams } from 'react-router-dom';
+import '../pages/syles/FormProdutos.css';
 
 export default function FormProdutos() {
   const { createProduct, getProduct, updateProduct } = useProdutos();
@@ -25,7 +26,7 @@ export default function FormProdutos() {
           categoria: res.categoria,
           categoriaProduto: res.categoriaProduto,
           descripcao: res.descripcao,
-          valor: res.valor
+          valor: res.valor,
         });
       })();
     }
@@ -38,7 +39,7 @@ export default function FormProdutos() {
         onSubmit={async (values, actions) => {
           if (params.id) {
             await updateProduct(params.id, values);
-            navigate('/produtos' + params.id)
+            navigate('/produtos' + params.id);
           } else {
             await createProduct(values);
           }
@@ -49,21 +50,51 @@ export default function FormProdutos() {
       >
         {({ handleSubmit, setFieldValue, isSubmitting }) => (
           <Form onSubmit={handleSubmit}>
-            <Field name='titulo' placeholder='Nome do Produto' />
-            <Field name='categoria' placeholder='Categoria' />
-            <Field name='categoriaProduto' placeholder='Categoria de Produto' />
-            <Field name='descripcao' placeholder='Descripcao' />
-            <Field type='number' name='valor' placeholder='Valor' />
-            <div className='image_imput'>
-              <input
-                type='file'
-                name='image'
-                onChange={(e) => setFieldValue('image', e.target.files[0])}
-              />
+            <div className='form_container'>
+              <div className='image_input'>
+                <h3>Arraste uma imagem ou </h3>
+                <label htmlFor='image'>Clique para carregar</label>
+                <input
+                  type='file'
+                  name='image'
+                  id='image'
+                  onChange={(e) => setFieldValue('image', e.target.files[0])}
+                />
+              </div>
+              <div className='input_fields'>
+                <h2> {params.id ? 'Editar Produto' : 'Cadastrar Produto'} </h2>
+                <Field
+                  className='input_form'
+                  name='titulo'
+                  placeholder='Nome do Produto'
+                />
+                <Field
+                  className='input_form'
+                  name='categoria'
+                  placeholder='Categoria'
+                />
+                <Field
+                  className='input_form'
+                  name='categoriaProduto'
+                  placeholder='Categoria de Produto'
+                />
+                <Field
+                  className='input_form'
+                  name='descripcao'
+                  placeholder='Descripcao'
+                  component={'textarea'}
+                />
+                <Field
+                  className='input_form'
+                  type='number'
+                  name='valor'
+                  placeholder='Valor'
+                />
+                <button type='submit' disabled={isSubmitting}>
+                  {isSubmitting ? 'Carregando...' : 'Cadastrar'}
+                </button>
+              </div>
             </div>
-            <button type='submit' disabled={isSubmitting}>
-              {isSubmitting ? 'Carregando...' : 'Cadastrar'}
-            </button>
           </Form>
         )}
       </Formik>

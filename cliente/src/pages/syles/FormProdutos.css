@@ -1,0 +1,58 @@
+.form_container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.image_input {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 15px;
+}
+
+.image_input input[type='file'] {
+  display: none;
+}
+
+.image_input label {
+  width: 200px;
+  background-color: #e0492b;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  padding: .5rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: .4s ease-in-out all;
+  text-transform: uppercase;
+}
+
+.image_input label:hover {
+  background-color: #f5ca45;
+  color: #2d373c;
+  border: 2px solid #e0492b;
+  font-weight: 600;
+}
+
+.input_fields {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.input_form {
+  border-radius: 15px;
+  padding: .5rem;
+  border: none;
+}
+

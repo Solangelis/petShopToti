@@ -13,9 +13,6 @@ import CategoryPage from './pages/CategoryPage';
 function App() {
   return (
     <ProdutosProvider>
-      <header>
-        <Navbar />
-      </header>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/criar-produto' element={<FormProdutos />} />

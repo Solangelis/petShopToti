@@ -22,22 +22,18 @@ const Navbar = () => {
         <Menu>
           <MenuItem>
             <MenuItemLink>
-              <Link to='/'>
-                Home
-              </Link>
+              <Link to='/'>Home</Link>
             </MenuItemLink>
           </MenuItem>
 
           <MenuItem>
             <MenuItemLink>
-              <Link to='/'>
-                Nossos Produtos
-              </Link>
+              <Link to='/'>Nossos Produtos</Link>
             </MenuItemLink>
           </MenuItem>
           <MenuItem>
             <MenuItemLink>
-              <Link to='novo-produto'>Novo Produto</Link>
+              <Link to='/criar-produto'>Novo Produto</Link>
             </MenuItemLink>
           </MenuItem>
           <MenuItem>

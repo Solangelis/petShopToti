@@ -17,7 +17,24 @@ const Home = () => {
           </Link>
         </div>
         <div className='hero_image'>
-          <img src='' alt='' />
+          <img src='../../public/img/cachorro11.png' alt='' />
+        </div>
+      </div>
+      <div className='banner_hero'>
+        <div className='banner_hero_content'></div>
+        <div className='banner_hero_content'>
+          <div className='banner_text'>
+            <span className='big_text'>200K+</span>
+            <p>Animais alimentados</p>
+          </div>
+          <div className='banner_text'>
+            <span className='big_text'>R$5</span>
+            <p>Venda do produto</p>
+          </div>
+          <div className='banner_text'>
+            <span className='big_text'>97%</span>
+            <p>Clientes satisfeitos</p>
+          </div>
         </div>
       </div>
       <main className='main'>

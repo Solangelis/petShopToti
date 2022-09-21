@@ -12,7 +12,7 @@ const Home = () => {
       <div className='hero_container'>
         <div className='hero_content'>
           <h1>Estamos sempre aqui pela boa saúde de todos os seus Pets</h1>
-          <Link to='/criar-produto'>
+          <Link to='/tienda'>
             <button>Compre agora</button>
           </Link>
         </div>

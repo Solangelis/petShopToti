@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import rotas from './Routes/index.routes.js';
+import routerCat from './Routes/Categorias.routes.js'
 
 
 const app = express()
@@ -15,6 +16,7 @@ app.use(express.urlencoded({extended: false}))
 
 //Rotas
 app.use(rotas)
+app.use(routerCat)
 
 
 export default app

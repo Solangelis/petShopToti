@@ -6,8 +6,8 @@
 }
 :root {
   font-family: Poppins, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -21,15 +21,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  width: 100%;
-  min-height: 100vh;
+body, html {
+  width: 100vw;
+  margin: 0 auto;
 }
 
 h1 {
   font-family: 'Baloo Bhaijaan 2';
   font-size: 3.2rem;
-  line-height: 1.1;
+  line-height: 1.1em;
   font-weight: 800;
 }
 h2{
@@ -45,10 +45,10 @@ h3{
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 5px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: .7em;
   font-weight: 500;
   text-transform: uppercase;
   font-family: inherit;
@@ -57,7 +57,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #2D373C;
+  border-color: #E34B30;
 }
 button:focus,
 button:focus-visible {
@@ -76,3 +76,17 @@ button:focus-visible {
     background-color: #F7F2E3;
   }
 }
+
+@media (max-width: 320px) {
+  h1 {
+    font-family: 'Baloo Bhaijaan 2';
+    text-align: center;
+    font-size: 2.2rem;
+    line-height: 1.1em;
+    font-weight: 800;
+  }
+  
+  
+}
+
+

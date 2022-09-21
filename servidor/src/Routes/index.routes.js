@@ -84,8 +84,7 @@ router.put('/api/produtos/:id', uploadFiles({
             }
             await fs.unlink(req.files.image.tempFilePath)
             await produto.save()
-      
-            
+
     }
       return resp.status(200).json(produto)
 
@@ -106,7 +105,7 @@ router.delete('/api/produtos/:id', async (req, resp) => {
       await deleteImage(produto.image.public_id)
     }
     
-        resp.status(200).json(produto)
+        resp.status(204).json()
     } catch (error) {
         resp.status(400).json({ message: error.message }).end()
     } 

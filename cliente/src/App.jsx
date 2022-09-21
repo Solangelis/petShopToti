@@ -6,6 +6,7 @@ import Contato from './pages/Contato';
 import NaoEncontrada from './pages/NaoEncontrada';
 import { ProdutosProvider } from './context/ProdutosProvider';
 import FormProdutos from './pages/FormProdutos';
+import Tienda from './pages/Tienda';
 import CategoryPage from './pages/CategoryPage';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/criar-produto' element={<FormProdutos />} />
-        {/* <Route path='/category' element={<CategoryPage />} /> */}
+        <Route path='/tienda' element={<Tienda />} /> 
         <Route path='/editar-produto/:id' element={<FormProdutos />} />
         <Route path='/produtos/:id' element={<PaginaDoProduto />} />
         <Route path='/contato' element={<Contato />} />

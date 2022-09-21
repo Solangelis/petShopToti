@@ -1,13 +1,15 @@
 .hero_container {
+  width: 100vw;
   min-height: 80vh;
   background-color: #e0492b;
   color: #f7f2e3;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .hero_content {
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -18,13 +20,18 @@
 }
 
 .hero_image {
+  width: 50%;
   display: flex;
   align-items: flex-end;
   margin-bottom: -4rem;
 }
 
+.hero_image img {
+  width: 100%;
+}
+
 .banner_hero {
-  width: 100vw;
+  width: 100%;
   min-height: 100px;
   background-color: #2d373c;
   display: flex;
@@ -47,7 +54,7 @@
   font-weight: 800;
 }
 
-.banner_text  p{
+.banner_text p {
   font-weight: 300;
   font-size: 14px;
 }
@@ -60,7 +67,8 @@
 }
 
 .categoria_section {
-  padding: 5rem;
+  width: 100%;
+  padding: 2rem;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -69,7 +77,7 @@
   position: relative;
 }
 
-.categoria_section h2{
+.categoria_section h2 {
   font-size: 3rem;
 }
 
@@ -85,10 +93,10 @@
 
 .category_cards_container {
   width: 100%;
-  max-width: 600px;
   min-height: 300px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
 }

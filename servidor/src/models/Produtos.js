@@ -7,7 +7,7 @@ const produtoSchema = new mongoose.Schema({
    },
    categoriaProduto:{
       type: String,
-      required: true
+      
    },
    titulo:{
       type: String,

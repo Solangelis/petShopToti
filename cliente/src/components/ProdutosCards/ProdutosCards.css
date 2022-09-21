@@ -1,0 +1,52 @@
+.cardShop_container {
+  width: calc(100% / 4);
+  min-height: 400px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardShop_container:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+
+.imgShop_container {
+  width: 100%;
+}
+
+.imgShop_container img {
+  display: block;
+  max-width: 100%;
+  width: auto !important;
+  height: auto !important;
+  max-height: 100%;
+}
+.shopCard_info {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards_valor {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Baloo Bhaijaan 2';
+}
+
+.shopCard_info button {
+  width: 200px;
+  background-color: #e0492b;
+  margin-top: 1rem;
+  opacity: 0;
+  transition: 0.3s ease-in-out all;
+}
+
+.shopCard_info button:hover {
+  opacity: 1;
+}

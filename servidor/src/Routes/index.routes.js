@@ -54,6 +54,9 @@ router.get('/api/produtos', async (req, resp) => {
 router.get('/api/produtos/:id',  async (req, resp) => {
     try {
         const produto = await Produto.findById(req.params.id)
+        if(!produto){
+          resp.send('<h2>Ooopa, parece que nao ta dando certo</h2>')
+        }
         resp.status(200).json(produto)
         
     } catch (error) {

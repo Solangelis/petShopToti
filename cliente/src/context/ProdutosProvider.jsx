@@ -70,6 +70,7 @@ export const ProdutosProvider = ({ children }) => {
         setProdutos,
         createProduct,
         deleteProduct,
+        getProducts,
         getProduct,
         updateProduct,
       }}

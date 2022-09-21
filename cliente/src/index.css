@@ -21,9 +21,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body, html {
-  width: 100vw;
+html {
+  background-color: #fff;
+}
+
+body {
+  min-height: 100%;
   margin: 0 auto;
+  min-width: 320px;
 }
 
 h1 {

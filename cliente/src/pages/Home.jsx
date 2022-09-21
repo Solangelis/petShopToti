@@ -9,7 +9,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className='hero_container'>
+      <section className='hero_container'>
         <div className='hero_content'>
           <h1>Estamos sempre aqui pela boa saúde de todos os seus Pets</h1>
           <Link to='/tienda'>
@@ -19,8 +19,8 @@ const Home = () => {
         <div className='hero_image'>
           <img src='../../public/img/cachorro11.png' alt='' />
         </div>
-      </div>
-      <div className='banner_hero'>
+      </section>
+      <section className='banner_hero'>
         <div className='banner_hero_content'></div>
         <div className='banner_hero_content'>
           <div className='banner_text'>
@@ -36,7 +36,7 @@ const Home = () => {
             <p>Clientes satisfeitos</p>
           </div>
         </div>
-      </div>
+      </section>
       <main className='main'>
         <section className='categoria_section'>
           <h2>Categorias em destaque</h2>

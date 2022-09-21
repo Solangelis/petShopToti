@@ -1,6 +1,16 @@
 .shop_container {
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
   display: block;
+  overflow: hidden;
+}
+
+.shop_hero {
+  width: 100vw;
+  height: 350px;
+  background-image: url('../../../public/img/petShop-bg.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .container_shop {
   width: 100%;

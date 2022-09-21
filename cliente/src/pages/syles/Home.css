@@ -1,5 +1,5 @@
 .hero_container {
-  width: 100vw;
+  width: 100%;
   min-height: 80vh;
   background-color: #e0492b;
   color: #f7f2e3;
@@ -81,6 +81,11 @@
   font-size: 3rem;
 }
 
+.category_cards_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
 .main_wraper {
   width: 100%;
   display: grid;
@@ -91,12 +96,4 @@
   border-radius: 15px;
 }
 
-.category_cards_container {
-  width: 100%;
-  min-height: 300px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
+

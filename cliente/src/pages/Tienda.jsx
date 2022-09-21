@@ -1,14 +1,20 @@
-import ProdutosCards from '../components/Shop/ProdutosCards';
-import { useProdutos } from '../context/ProdutosProvider'
+import { useEffect } from 'react'
+import ProdutosCards from '../components/ProdutosCards/ProdutosCards';
+import { useProdutos } from '../context/ProdutosProvider';
+import { useNavigate } from 'react-router-dom'
 import '../pages/syles/Tienda.css'
 
 export default function Tienda() {
-  const { produtos } = useProdutos()
-  console.log(produtos)
+  const { produtos } = useProdutos();
+  const navigate = useNavigate()
+  
+  
+  
+
   return (
     <div className='shop_container'>
       <section className='shop_hero'>
-        <img src='' alt='' />
+        {/* <img src='../../public/img/petShop-bg.webp' alt='' /> */}
       </section>
       <section className='container_shop'>
         <aside className='shop_sidebar'>
@@ -26,21 +32,21 @@ export default function Tienda() {
             </form>
           </div>
         </aside>
-        <main className="shop_main_container">
+        <main className='shop_main_container'>
           <h1>Nossa Tienda</h1>
-          <div className="shop_produtos_container">
-            <div className="produtos_container">
-                {
-                  produtos.map((produto) =>(
-                    <ProdutosCards
-                    key={produto._id}
-                    image={produto.image.secure_url}
-                    titulo={produto.titulo}
-                    categoria={produto.categoria}
-                    valor={produto.valor}
-                    />
-                  ))
-                }
+          <div className='shop_produtos_container'>
+            <div className='produtos_container'>
+              {produtos.map((produto) => (
+                <ProdutosCards
+                  key={produto._id}
+                  image={produto.image.secure_url}
+                  titulo={produto.titulo}
+                  categoria={produto.categoria}
+                  valor={produto.valor}
+                  produtos={produtos}
+                  onClick={() => navigate(`/produtos/${produto._id}`)}
+                />
+              ))}
             </div>
           </div>
         </main>

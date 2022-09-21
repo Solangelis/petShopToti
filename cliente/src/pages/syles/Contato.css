@@ -4,4 +4,13 @@
     margin: 0 10px;
 }
 
+.imagem-contato a{
+    text-decoration: none;
+    color: blue;
+}
 
+
+.imagem-sobrenos{
+    width: 30vw;
+
+}

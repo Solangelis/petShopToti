@@ -5,8 +5,10 @@ import ProdutoForm from './pages/ProdutoForm';
 import PaginaDoProduto from './pages/PaginaDoProduto';
 import Contato from './pages/Contato';
 import NaoEncontrada from './pages/NaoEncontrada';
-import Footer from './components/Footer/Footer';
-import './App.css';
+import { ProdutosProvider } from './context/ProdutosProvider';
+import FormProdutos from './pages/FormProdutos';
+import Tienda from './pages/Tienda';
+import CategoryPage from './pages/CategoryPage';
 
 function App() {
   return (

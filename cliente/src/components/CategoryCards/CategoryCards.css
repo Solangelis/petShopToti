@@ -1,11 +1,4 @@
-.category_wrapper {
-  width: 100%;
-  max-width: 600px;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .category_cards {
   width: 100px;

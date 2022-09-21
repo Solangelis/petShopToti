@@ -3,8 +3,8 @@ import Card from '../components/Cards/Card';
 import { useNavigate, Link } from 'react-router-dom';
 import './syles/Home.css';
 import CardHome from '../components/CardHome/CardHome';
-import CategoryCards from '../components/CategoryCards/CategoryCards'
-import About from '../components/About/about'
+import CategoryCards from '../components/CategoryCards/CategoryCards';
+import About from '../components/About/About';
 
 const Home = () => {
   const { produtos } = useProdutos();
@@ -40,6 +40,7 @@ const Home = () => {
         </div>
       </section>
       <main className='main'>
+        <About />
         <section className='categoria_section'>
           <h2>Categorias em destaque</h2>
           <div className='category_cards_container'>
@@ -62,10 +63,8 @@ const Home = () => {
               />
             ))}
           </div>
-          <div className='hero_about'>
-          <About/>
-          </div>
-          <CardHome/>
+          <div className='hero_about'></div>
+          <CardHome />
         </section>
       </main>
     </>

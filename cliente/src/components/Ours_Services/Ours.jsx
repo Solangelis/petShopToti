@@ -1,18 +1,15 @@
 import { HiOutlineCurrencyDollar, HiOutlineClock } from 'react-icons/hi';
 import '../Ours_Services/Ours.css';
-function Card({ title, imagenSource, url }) {
+function Card({ image, titulo, info }) {
   return (
     <div className='card__services'>
       <div className='card__img'>
-        <img src='../../public/img/category-pet1.jpg' alt='' />
+        <img src={`../../public/img/category-pet${image}.jpg`} alt='' />
       </div>
       <div className='service__cards-info'>
         <div className='card__body'>
-          <h4>Consultas para filhotes</h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
-            veniam saepe dolorem.
-          </p>
+          <h4>{titulo}</h4>
+          <p>{info}</p>
         </div>
         <div className='card__button-group'>
           <button>

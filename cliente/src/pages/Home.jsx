@@ -68,7 +68,27 @@ const Home = () => {
         <section className='home__servicios'>
           <h2>Nossos serviços</h2>
           <div className='home__servicios-cards'>
-            <Ours />
+            <Ours
+              image={1}
+              titulo={'Consultas para filhotes'}
+              info={
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae veniam saepe dolorem.'
+              }
+            />
+            <Ours
+              image={2}
+              titulo={'Consultas para Gatos'}
+              info={
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae veniam saepe dolorem.'
+              }
+            />
+            <Ours
+              image={3}
+              titulo={'Consultas para Pássaros'}
+              info={
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae veniam saepe dolorem.'
+              }
+            />
           </div>
         </section>
         {/* <CardHome /> */}

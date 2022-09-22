@@ -124,3 +124,18 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.testimonios__container {
+  width: 100%;
+  min-height: 50vh;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.testimonios__container h2 {
+  font-size: 3rem;
+}

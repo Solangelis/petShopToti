@@ -2,10 +2,10 @@ import { useProdutos } from '../context/ProdutosProvider';
 import Card from '../components/Cards/Card';
 import { useNavigate, Link } from 'react-router-dom';
 import './syles/Home.css';
-import CardHome from '../components/CardHome/CardHome';
 import CategoryCards from '../components/CategoryCards/CategoryCards';
 import Ours from '../components/Ours_Services/Ours';
 import About from '../components/About/About';
+import TestimoniosCards from '../components/TestimoniosCards/TestimoniosCards';
 
 const Home = () => {
   const { produtos } = useProdutos();
@@ -91,7 +91,22 @@ const Home = () => {
             />
           </div>
         </section>
-        {/* <CardHome /> */}
+        <section className='testimonios__container'>
+          <h2>O que nossos clientes dizem</h2>
+          <p>
+            Compartilhe fotos e vídeos de bichinhos antes e depois de passarem
+            pelo banho e tosa do seu estabelecimento
+          </p>
+          <TestimoniosCards
+            image={1}
+            titulo={'"Uma equipe de veterinários em quem você pode confiar"'}
+            testimonio={
+              'Até que alguém tenha amado um animal, uma parte da sua alma permanece desperta. Acreditamos nele e acreditamos no fácil acesso às coisas que são boas para nossa mente, corpo e espírito.'
+            }
+            author={'Carla Philistin'}
+            descripcao={'Pets Lover'}
+          />
+        </section>
       </main>
     </>
   );

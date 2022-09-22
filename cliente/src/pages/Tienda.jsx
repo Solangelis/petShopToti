@@ -1,11 +1,17 @@
+import { useEffect } from 'react';
 import ProdutosCards from '../components/ProdutosCards/ProdutosCards';
 import { useProdutos } from '../context/ProdutosProvider';
 import { useNavigate } from 'react-router-dom';
 import '../pages/syles/Tienda.css';
 
 export default function Tienda() {
-  const { search } = useProdutos();
+  const { search, getProducts } = useProdutos();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+  
 
   const result = search.map((produto) => (
     <ProdutosCards

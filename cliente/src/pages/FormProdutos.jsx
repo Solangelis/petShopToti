@@ -44,7 +44,7 @@ export default function FormProdutos() {
             await createProduct(values);
           }
           actions.setSubmitting(false);
-          navigate('/');
+          navigate('/tienda');
         }}
         enableReinitialize
       >

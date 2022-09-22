@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { HiOutlineSearch } from 'react-icons/hi';
 import { useProdutos } from '../../context/ProdutosProvider';
 import { Link } from 'react-router-dom';
 import {

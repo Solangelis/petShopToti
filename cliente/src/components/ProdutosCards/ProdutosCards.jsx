@@ -4,8 +4,6 @@ import '../ProdutosCards/ProdutosCards.css'
 
 
 export default function ProdutosCards({ image, titulo, categoria, valor, onClick }) {
-  const { produtos } = useProdutos()
-  console.log(produtos);
 
   return (
     <div className='cardShop_container' onClick={onClick}>

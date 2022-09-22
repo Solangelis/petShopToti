@@ -32,28 +32,9 @@ export default function Tienda() {
           <h1>Nossa Tienda</h1>
         </div>
       </section>
-      <section className='container_shop'>
-        <aside className='shop_sidebar'>
-          <h4>Filtros</h4>
-          <div className='sidebar_cat'>
-            <form action='post'>
-              <label htmlFor='filter_cat'>Categorias</label>
-              <select name='categorias' id='filter_cat'>
-                <option value='cachorros'>Cachorros</option>
-                <option value='gatos'>Gatos</option>
-                <option value='cohelios'>Cohelhos</option>
-                <option value='passaros'>Pássaros</option>
-                <option value='peixes'>Peixes</option>
-              </select>
-            </form>
-          </div>
-        </aside>
-        <main className='shop_main_container'>
-          <div className='shop_produtos_container'>
-            <div className='produtos_container'>{productList}</div>
-          </div>
-        </main>
-      </section>
+      <main className='shop_main_container'>
+        <div className='produtos_container'>{productList}</div>
+      </main>
     </div>
   );
 }

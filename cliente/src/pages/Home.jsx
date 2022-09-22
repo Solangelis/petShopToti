@@ -63,7 +63,6 @@ const Home = () => {
               />
             ))}
           </div>
-          <div className='hero_about'></div>
           <CardHome />
         </section>
       </main>

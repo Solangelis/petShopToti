@@ -1,4 +1,3 @@
-import React from "react";
 import imagepet from  '../images/imagepet.png';
 import cate from '../images/cate.png';
 import './CardHome'

@@ -17,15 +17,15 @@ export const Wrapper = styled.div`
 `;
 
 export const LogoContainer = styled.div`
-  margin-left: 0.5rem;
+  padding-left: 5rem;
   display: flex;
   align-items: center;
   font-size: 1.2rem;
   font-family: sans-serif;
   
   img{
-    width:130px;
-    height:130px;
+    width:170px;
+    height:170px;
   }
 
   `;
@@ -40,6 +40,7 @@ export const Menu = styled.ul`
 
 export const MenuItem = styled.li`
   height: 100%;
+  
 
 `;
 
@@ -50,8 +51,6 @@ export const MenuItemLink = styled.div`
   height: 100%;
   padding: 0.5rem 2.5rem;
   color: #F7F2E3;
-  font-size: 1rem;
-  font-weight: 300;
   cursor: pointer;
   transition: 0.5s all ease;
   `;

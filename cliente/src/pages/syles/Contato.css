@@ -1,16 +1,43 @@
-.icon{
-    width: 24px;
-    height: 24px;
-    margin: 0 10px;
+.icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
 }
 
-.imagem-contato a{
-    text-decoration: none;
-    color: blue;
+.imagem-contato a {
+  text-decoration: none;
+  color: blue;
 }
 
+.sobre-nos {
+  width: 50%;
+  padding-left: 3rem;
+}
 
-.imagem-sobrenos{
-    width: 30vw;
+.sobre-nos h2 {
+  font-size: 4rem;
+}
 
+.sobre-nos span {
+  font-size: 14px;
+}
+
+.nos {
+  width: 50%;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.imagem-sobrenos {
+  width: 100%;
+  border-radius: 15px;
+}
+.contato_container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-around;
+  
 }

@@ -3,7 +3,7 @@ import cate from '../images/cate.png';
 import './CardHome'
 
 
-export function CardHome() {
+const CardHome  = () => {
     return(
     <div>
         <h2>A melhor ração, para sua melhor companhia! ...</h2>

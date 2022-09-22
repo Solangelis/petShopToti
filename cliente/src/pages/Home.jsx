@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import './syles/Home.css';
 import CardHome from '../components/CardHome/CardHome';
 import CategoryCards from '../components/CategoryCards/CategoryCards';
+import Ours from '../components/Ours_Services/Ours';
 import About from '../components/About/About';
 
 const Home = () => {
@@ -63,8 +64,14 @@ const Home = () => {
               />
             ))}
           </div>
-          <CardHome />
         </section>
+        <section className='home__servicios'>
+          <h2>Nossos serviços</h2>
+          <div className='home__servicios-cards'>
+            <Ours />
+          </div>
+        </section>
+        {/* <CardHome /> */}
       </main>
     </>
   );

@@ -102,11 +102,25 @@
   border-radius: 15px;
 }
 
-
-
-
 .hero_about {
   background-color:#FBF4DF;
   width: 110%;
   padding: 15px;
+}
+
+.home__servicios {
+  min-height: 50vh;
+  width: 100%;
+  background-color: #fff;
+  padding: 5rem 3rem 5rem 3rem;
+}
+
+.home__servicios h2 {
+  font-size: 3rem;
+}
+
+.home__servicios-cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

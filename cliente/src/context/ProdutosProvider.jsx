@@ -7,7 +7,6 @@ import {
   obterReqProduto,
   updateReqProdutos,
 } from '../api/produtos.api';
-import Navbar from '../components/Navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 const produtosContext = createContext();
@@ -88,13 +87,7 @@ export const ProdutosProvider = ({ children }) => {
         setSearch,
       }}
     >
-      <header>
-        <Navbar />
-      </header>
       {children}
-      <footer>
-        <Footer />
-      </footer>
     </produtosContext.Provider>
   );
 };

@@ -57,6 +57,13 @@ export const MenuItemLink = styled.div`
 
   export const BuscadorContainer = styled.div`
     min-width: 350px;
+    input {
+      border-radius: 15px;
+      padding: 5px 10px;
+      border: none;
+      outline: none;
+    }
+    
   `;
 
 

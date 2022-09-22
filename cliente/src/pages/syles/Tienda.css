@@ -7,14 +7,25 @@
 
 .shop_hero {
   width: 100vw;
-  height: 350px;
+  height: 35vh;
   background-image: url('../../../public/img/petShop-bg.webp');
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
+
+.hero__overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
 .container_shop {
   width: 100%;
-  min-height: 100vh;
   display: flex;
   justify-content: space-around;
   gap: 1rem;
@@ -24,8 +35,7 @@
 }
 
 .shop_sidebar {
-  width: 20%;
-  min-height: 100vh;
+  width: 15%;
   background-color: #fff;
   padding: 1rem;
   display: flex;

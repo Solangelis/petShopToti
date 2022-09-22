@@ -15,9 +15,6 @@ import {
 const Navbar = () => {
   const { handleChangeResult } = useProdutos();
 
-
-
-  
   return (
     <Container>
       <Wrapper>
@@ -33,10 +30,9 @@ const Navbar = () => {
               name='search'
               id='search'
               onChange={handleChangeResult}
+              autoComplete='off'
+              placeholder='Procure seu produto...'
             />
-            <button>
-              <HiOutlineSearch />
-            </button>
           </form>
         </BuscadorContainer>
         <Menu>

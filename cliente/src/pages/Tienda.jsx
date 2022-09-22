@@ -1,15 +1,12 @@
-import { useEffect } from 'react'
 import ProdutosCards from '../components/ProdutosCards/ProdutosCards';
 import { useProdutos } from '../context/ProdutosProvider';
-import { useNavigate } from 'react-router-dom'
-import '../pages/syles/Tienda.css'
+import { useNavigate } from 'react-router-dom';
+import '../pages/syles/Tienda.css';
 
 export default function Tienda() {
-  const { produtos,  handleSearchResult, search, setSearch } = useProdutos();
-  const navigate = useNavigate()
-  
-  // console.log(setSearch)
-  // console.log(handleSearchResult);
+  const { search } = useProdutos();
+  const navigate = useNavigate();
+
   const result = search.map((produto) => (
     <ProdutosCards
       key={produto._id}
@@ -20,16 +17,20 @@ export default function Tienda() {
       onClick={() => navigate(`/produtos/${produto._id}`)}
     />
   ));
-  const productList = result?.length ? result : <article><p>Produto Nao Encontrado</p></article>
-
-
-
-  
+  const productList = result?.length ? (
+    result
+  ) : (
+    <article>
+      <p>Produto Nao Encontrado</p>
+    </article>
+  );
 
   return (
     <div className='shop_container'>
       <section className='shop_hero'>
-        {/* <img src='../../public/img/petShop-bg.webp' alt='' /> */}
+        <div className='hero__overlay'>
+          <h1>Nossa Tienda</h1>
+        </div>
       </section>
       <section className='container_shop'>
         <aside className='shop_sidebar'>
@@ -48,11 +49,8 @@ export default function Tienda() {
           </div>
         </aside>
         <main className='shop_main_container'>
-          <h1>Nossa Tienda</h1>
           <div className='shop_produtos_container'>
-            <div className='produtos_container'>
-              {productList}
-            </div>
+            <div className='produtos_container'>{productList}</div>
           </div>
         </main>
       </section>

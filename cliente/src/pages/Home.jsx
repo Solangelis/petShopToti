@@ -1,15 +1,28 @@
 import { useProdutos } from '../context/ProdutosProvider';
-import Card from '../components/Cards/Card';
 import { useNavigate, Link } from 'react-router-dom';
-import './syles/Home.css';
+import Card from '../components/Cards/Card';
 import CategoryCards from '../components/CategoryCards/CategoryCards';
 import Ours from '../components/Ours_Services/Ours';
 import About from '../components/About/About';
 import TestimoniosCards from '../components/TestimoniosCards/TestimoniosCards';
+import './syles/Home.css';
 
 const Home = () => {
   const { produtos } = useProdutos();
   const navigate = useNavigate();
+
+  const productlist = produtos.map((produto) => (
+    <Card
+      key={produto._id}
+      image={produto.image ? produto.image.secure_url : null}
+      titulo={produto.titulo}
+      categoria={produto.categoria}
+      descripcao={produto.descripcao}
+      valor={produto.valor}
+      onClick={() => navigate(`/produtos/${produto._id}`)}
+    />
+  ));
+
   return (
     <>
       <section className='hero_container'>
@@ -58,19 +71,7 @@ const Home = () => {
             <CategoryCards image={3} categoria={'Pássaros'} />
             <CategoryCards image={4} categoria={'Peixes'} />
           </div>
-          <div className='main_wraper'>
-            {produtos.map((produto) => (
-              <Card
-                key={produto._id}
-                image={produto.image ? produto.image.secure_url : null}
-                titulo={produto.titulo}
-                categoria={produto.categoria}
-                descripcao={produto.descripcao}
-                valor={produto.valor}
-                onClick={() => navigate(`/produtos/${produto._id}`)}
-              />
-            ))}
-          </div>
+          <div className='main_wraper'>{productlist}</div>
         </section>
         <section className='home__servicios'>
           <h2>Nossos serviços</h2>

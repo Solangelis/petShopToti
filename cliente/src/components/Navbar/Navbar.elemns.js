@@ -55,6 +55,10 @@ export const MenuItemLink = styled.div`
   transition: 0.5s all ease;
   `;
 
+  export const BuscadorContainer = styled.div`
+    min-width: 350px;
+  `;
+
 
 
 

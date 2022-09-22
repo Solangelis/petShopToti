@@ -5,10 +5,25 @@ import { useNavigate } from 'react-router-dom'
 import '../pages/syles/Tienda.css'
 
 export default function Tienda() {
-  const { produtos } = useProdutos();
+  const { produtos,  handleSearchResult, search, setSearch } = useProdutos();
   const navigate = useNavigate()
   
-  
+  // console.log(setSearch)
+  // console.log(handleSearchResult);
+  const result = search.map((produto) => (
+    <ProdutosCards
+      key={produto._id}
+      image={produto.image.secure_url}
+      titulo={produto.titulo}
+      categoria={produto.categoria}
+      valor={produto.valor}
+      onClick={() => navigate(`/produtos/${produto._id}`)}
+    />
+  ));
+  const productList = result?.length ? result : <article><p>Produto Nao Encontrado</p></article>
+
+
+
   
 
   return (
@@ -25,7 +40,7 @@ export default function Tienda() {
               <select name='categorias' id='filter_cat'>
                 <option value='cachorros'>Cachorros</option>
                 <option value='gatos'>Gatos</option>
-                <option value='cohelios'>Cohelios</option>
+                <option value='cohelios'>Cohelhos</option>
                 <option value='passaros'>Pássaros</option>
                 <option value='peixes'>Peixes</option>
               </select>
@@ -36,17 +51,7 @@ export default function Tienda() {
           <h1>Nossa Tienda</h1>
           <div className='shop_produtos_container'>
             <div className='produtos_container'>
-              {produtos.map((produto) => (
-                <ProdutosCards
-                  key={produto._id}
-                  image={produto.image.secure_url}
-                  titulo={produto.titulo}
-                  categoria={produto.categoria}
-                  valor={produto.valor}
-                  produtos={produtos}
-                  onClick={() => navigate(`/produtos/${produto._id}`)}
-                />
-              ))}
+              {productList}
             </div>
           </div>
         </main>

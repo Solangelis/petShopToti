@@ -1,4 +1,6 @@
-import React from 'react';
+import { useState } from 'react';
+import { HiOutlineSearch } from 'react-icons/hi';
+import { useProdutos } from '../../context/ProdutosProvider';
 import { Link } from 'react-router-dom';
 import {
   Container,
@@ -7,9 +9,15 @@ import {
   Menu,
   MenuItem,
   MenuItemLink,
+  BuscadorContainer,
 } from './Navbar.elemns';
 
 const Navbar = () => {
+  const { handleChangeResult } = useProdutos();
+
+
+
+  
   return (
     <Container>
       <Wrapper>
@@ -18,7 +26,19 @@ const Navbar = () => {
             <img src='../../public/fofinhos.png' alt='' />
           </Link>
         </LogoContainer>
-
+        <BuscadorContainer>
+          <form onSubmit={(e) => e.preventDefault()}>
+            <input
+              type='text'
+              name='search'
+              id='search'
+              onChange={handleChangeResult}
+            />
+            <button>
+              <HiOutlineSearch />
+            </button>
+          </form>
+        </BuscadorContainer>
         <Menu>
           <MenuItem>
             <MenuItemLink>

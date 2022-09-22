@@ -1,17 +1,12 @@
-import React from 'react';
 import '../About/About.css';
 
 function About() {
   return (
     <>
-      <div className='home-about'>
+      <section className='home-about'>
         <div className='container-resumo-fotos'>
           <div className='div-imagem'>
-            <img
-              className='imgem-home'
-              src='../../public/img/about-bg1.png'
-              alt='about'
-            />
+            
           </div>
           <div className='div-resumo'>
             <h2>Sobre nós - Fofinhos Pet Shop</h2>
@@ -30,10 +25,10 @@ function About() {
             de programação.
             <p />
             <br />
-            <button className='btn-about'>Saiba Mais</button>
+            <button >Saiba Mais</button>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

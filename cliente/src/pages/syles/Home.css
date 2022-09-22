@@ -139,3 +139,27 @@
 .testimonios__container h2 {
   font-size: 3rem;
 }
+
+.banner_hero_content_img {
+  width: 200px;
+  position: relative;
+}
+
+.banner_hero_content_img img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.banner_hero_content_img p {
+  width: 200px;
+  position: absolute;
+  left: 220px;
+  bottom: 120px;
+}
+
+.banner_hero_content_img span {
+  position: absolute;
+  letter-spacing: 1px;
+  left: 20px;
+}

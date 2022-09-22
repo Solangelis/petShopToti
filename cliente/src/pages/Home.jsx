@@ -24,7 +24,14 @@ const Home = () => {
         </div>
       </section>
       <section className='banner_hero'>
-        <div className='banner_hero_content'></div>
+        <div className='banner_hero_content_img'>
+          <img src='../../public/img/pet-image-bg2.png' alt='' />
+          <span>Cupão #TotiPetShop</span>
+          <p>
+            Junte-se hoje e aproveite o <strong>Desconto Plano de 5%</strong> em
+            seu primeiro pedido. Por um tempo limitado.
+          </p>
+        </div>
         <div className='banner_hero_content'>
           <div className='banner_text'>
             <span className='big_text'>200K+</span>
